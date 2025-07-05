@@ -7,8 +7,8 @@ export function BottomNav () {
             <div className="flex items-center justify-around py-2">
                 <NavButton page={'/'} image={'/bottomNav/market.svg'} title={"Market"} />
                 <NavButton page={'/top'} image={'/bottomNav/top.svg'} title={"Top"} />
-                <NavButton page={'#'} image={'/bottomNav/rocket.svg'} title={"Rocket"} />
-                <NavButton page={'#'} image={'/bottomNav/friends.svg'} title={"Friends"} />
+                <NavButton page={'/rocket'} image={'/bottomNav/rocket.svg'} title={"Rocket"} />
+                <NavButton page={'/friends'} image={'/bottomNav/friends.svg'} title={"Friends"} />
                 <NavButton page={'#'} image={'/bottomNav/profile.svg'} title={"Profile"} />
             </div>
         </Layout>
