@@ -1,7 +1,7 @@
 import {MarathonTimer} from "@/feature/marathonTime";
 import {InfoBanner} from "@/shared/ui/info-banner";
 import {RewardSection} from "@/feature/reward-section";
-import {Leaderboard} from "@/feature/leaderboard/conteiner/leaderboard";
+import {Leaderboard} from "@/feature/leaderboard";
 
 export default function Page() {
     return (
