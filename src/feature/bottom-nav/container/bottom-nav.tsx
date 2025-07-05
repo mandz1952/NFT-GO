@@ -5,11 +5,11 @@ export function BottomNav () {
     return (
         <Layout>
             <div className="flex items-center justify-around py-2">
-                <NavButton image={'/bottomNav/market.svg'} title={"Market"} />
-                <NavButton image={'/bottomNav/top.svg'} title={"Top"} />
-                <NavButton image={'/bottomNav/rocket.svg'} title={"Rocket"} />
-                <NavButton image={'/bottomNav/friends.svg'} title={"Friends"} />
-                <NavButton image={'/bottomNav/profile.svg'} title={"Profile"} />
+                <NavButton page={'/'} image={'/bottomNav/market.svg'} title={"Market"} />
+                <NavButton page={'/top'} image={'/bottomNav/top.svg'} title={"Top"} />
+                <NavButton page={'#'} image={'/bottomNav/rocket.svg'} title={"Rocket"} />
+                <NavButton page={'#'} image={'/bottomNav/friends.svg'} title={"Friends"} />
+                <NavButton page={'#'} image={'/bottomNav/profile.svg'} title={"Profile"} />
             </div>
         </Layout>
     )
