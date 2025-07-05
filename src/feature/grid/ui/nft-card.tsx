@@ -5,7 +5,7 @@ export function NftCard ({price, image}: {price: string, image: string}) {
     return (
         <div className="bg-gradient-to-b from-[#6100FF80] to-[#B384FF80] rounded-lg p-3 relative">
             <div className="flex bg-[#383838] rounded-[50px] pl-2
-             pr-2 pt-1 pb-1 text-center w-[80px] items-center gap-1 mb-2">
+             pr-2 pt-1 pb-1 text-center w-[80px] items-center ml-[-10px] mt-[-10px] gap-1 mb-2">
                 <span className="text-white text-center text-sm font-semibold">{price}</span>
                 <div className="w-4 h-4  rounded-full flex items-center justify-center">
                     <Image src={'/tonCoin.svg'} alt="ton coin" width={18} height={18} />

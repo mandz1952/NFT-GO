@@ -16,13 +16,13 @@ export function Header (){
                 <div className="bg-[#231c46] border-2 border-[#533189] rounded-lg px-2 py-1 flex items-center gap-2">
                     <Image src={'/tonCoin.svg'} alt={"ton Coin"} width={18} height={18} />
                     <span className="text-white text-lg font-semibold">0.00</span>
-                    <Button className="bg-[#21ee43] hover:bg-[#21ee43]/90 text-black w-10 h-10 rounded-lg p-0">
+                    <Button className="bg-[#21ee43] hover:bg-[#21ee43]/90 text-black w-7 h-7 rounded-sm p-0">
                         <Plus className="w-5 h-5"/>
                     </Button>
                 </div>
 
             </div>
-            <div className="bg-[#231c46] border-2 border-[#533189] rounded-lg px-2 py-1 flex items-center">
+            <div className="bg-[#231c46] border-2 border-[#533189] rounded-lg px-1 py-0.5 flex items-center">
                 <Button className="bg-[#231c46] hover:bg-[#231c46]/90 text-white px-6 py-2 rounded-lg text-lg">
                     Connect Wallet
                 </Button>
