@@ -6,6 +6,7 @@ import {useState} from "react";
 
 export function LanguageSelection() {
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [selectedLanguage, setSelectedLanguage] = useState("russian")
 
     return (
