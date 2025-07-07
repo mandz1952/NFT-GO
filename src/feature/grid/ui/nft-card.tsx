@@ -1,19 +1,22 @@
-"use client"
-
 import {ShoppingCart} from "lucide-react";
 import Image from "next/image";
-import {useState} from "react";
 
-export function NftCard ({price, image, isProfile}: {isProfile: boolean, price: string, image: string}) {
+interface ItemProps {
+    id: number,
+    price: number | string | null,
+    isSelected: boolean,
+    image: string,
+}
 
-    const [isBlurred, setIsBlurred] = useState(false);
+export function NftCard ({toggleItemSelection, showActionButtons, price, image, isProfile, item}: {toggleItemSelection: (value: number) => void, showActionButtons: boolean, item: ItemProps, isProfile: boolean, price: string | null, image: string}) {
 
     return (
         <div
-            onClick={() => setIsBlurred(!isBlurred)}
-            className={`bg-gradient-to-b from-[#6100FF80] to-[#B384FF80] p-0.5 rounded-lg relative ${
-            !isBlurred && isProfile ? "opacity-60" : ""
-        } `}>
+            className={`relative bg-gradient-to-br rounded-[20px] from-[#8845f5] to-[#533189] border-0 p-3 pl-1 pt-1 cursor-pointer transition-all ${
+                item.isSelected && isProfile ? "" : ""
+            } ${showActionButtons && isProfile && !item.isSelected ? "blur-sm opacity-50" : ""}`}
+            onClick={() => toggleItemSelection(item.id)}
+        >
             <div className="flex bg-[#383838] rounded-[50px] pl-2
              pr-2 pt-1 pb-1 text-center w-[70px] items-center gap-1 mb-2">
                 <span className="text-white text-center text-xs font-semibold">{price}</span>

@@ -32,7 +32,7 @@ export function ConnectModal({showModal, setShowModal}: {showModal: boolean, set
                                 </div>
                             </div>
                         ) : (
-                            <div className="grid grid-cols-5 gap-4 p-4">
+                            <div className="grid grid-cols-5 gap-4 gap-x-14 p-4">
                                 {walletOptions.map((wallet, index) => {
                                     return <AllOption key={index} wallet={wallet} />
                                 })}
