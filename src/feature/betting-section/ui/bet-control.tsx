@@ -1,7 +1,14 @@
+"use client"
+
 import {Button} from "@/shared/ui/button";
 import {Minus, Plus} from "lucide-react";
+import {useState} from "react";
+import {Deposit} from "@/feature/deposit";
 
 export function BetControl ({presetAmounts, adjustBet, betAmount1, setBetAmount1}: {presetAmounts: number[], setBetAmount1: (value: number) => void, betAmount1: number,adjustBet: (value: number, fun: (value: number) => void, b: boolean ) => void}) {
+
+    const [showDepositModal, setShowDepositModal] = useState(false)
+
     return (
         <div className="flex bg-[#262352] rounded-[20px]">
             <div className="flex flex-col bg-[#1B1636] rounded-lg items-center p-2 my-2 ml-0.5 gap-3">
@@ -51,9 +58,11 @@ export function BetControl ({presetAmounts, adjustBet, betAmount1, setBetAmount1
 
             </div>
             <div className={'w-[100%] py-2 px-1'}>
-                <Button className="bg-gradient-to-r from-[#8845f5] to-[#B384FF] hover:bg-[#8845f5]/80 text-white rounded-[20px] font-bold w-[100%] h-[100%]">СТАВИТЬ</Button>
+                <Button
+                    onClick={() => {setShowDepositModal(true)}}
+                    className="bg-gradient-to-r from-[#8845f5] to-[#B384FF] hover:bg-[#8845f5]/80 text-white rounded-[20px] font-bold w-[100%] h-[100%]">СТАВИТЬ</Button>
             </div>
+            <Deposit showDepositModal={showDepositModal} setShowDepositModal={setShowDepositModal}/>
         </div>
-
     )
 }

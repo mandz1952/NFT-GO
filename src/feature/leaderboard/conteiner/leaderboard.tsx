@@ -1,5 +1,6 @@
 import {BoardItem} from "@/feature/leaderboard/ui/board-item";
-import {Thead} from "@/feature/leaderboard/ui/thead";
+import {Thead} from "@/shared/ui/thead";
+
 
 export function Leaderboard() {
 
@@ -11,8 +12,8 @@ export function Leaderboard() {
     ]
 
     return (
-        <div className={'mx-6 space-y-3 mb-20'}>
-            <Thead/>
+        <div className={'space-y-3 mb-20'}>
+            <Thead fTitle={'Place'} sTitle={'User'} tTitle={'Turnover'}/>
             {leaderboardData.map((player) => {
                 return (
                     <BoardItem player={player} key={player.rank} />

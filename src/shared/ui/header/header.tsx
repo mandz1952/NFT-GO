@@ -1,9 +1,16 @@
+"use client"
+
 import {Plus} from 'lucide-react'
 import {Button} from "@/shared/ui/button";
 import Image from "next/image";
+import {ConnectModal} from "@/feature/connect-modal";
+import {useState} from "react";
 
 
 export function Header (){
+
+    const [showModal, setShowModal] = useState(false)
+
     return (
         <div className={'mb-3'}>
             <div className="flex items-center justify-between px-4 py-4 gap-1">
@@ -25,13 +32,15 @@ export function Header (){
 
                 </div>
                 <div className="bg-[#231c46] border-2 border-[#533189] rounded-lg px-1 py-0.5 flex items-center">
-                    <Button className="bg-[#231c46] hover:bg-[#231c46]/90 text-white px-6 py-2 rounded-lg text-lg">
+                    <Button
+                        onClick={() => setShowModal(true)}
+                        className="bg-[#231c46] hover:bg-[#231c46]/90 text-white px-6 py-2 rounded-lg text-lg">
                         Connect Wallet
                     </Button>
                 </div>
             </div>
             <div className={'bg-[#8845F533]/20 h-[2px] w-[100%] '}></div>
+            <ConnectModal showModal={showModal} setShowModal={setShowModal} />
         </div>
-
     )
 }

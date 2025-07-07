@@ -7,8 +7,10 @@ export default function Page() {
     return (
         <div className={'flex flex-col gap-2'}>
             <MarathonTimer/>
-            <InfoBanner/>
-            <RewardSection/>
+            <div className={'flex flex-col gap-1'}>
+                <InfoBanner/>
+                <RewardSection/>
+            </div>
             <Leaderboard/>
         </div>
     )

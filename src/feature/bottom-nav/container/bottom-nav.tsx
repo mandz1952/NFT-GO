@@ -9,7 +9,7 @@ export function BottomNav () {
                 <NavButton page={'/top'} image={'/bottomNav/top.svg'} title={"Top"} />
                 <NavButton page={'/rocket'} image={'/bottomNav/rocket.svg'} title={"Rocket"} />
                 <NavButton page={'/friends'} image={'/bottomNav/friends.svg'} title={"Friends"} />
-                <NavButton page={'#'} image={'/bottomNav/profile.svg'} title={"Profile"} />
+                <NavButton page={'/profile'} image={'/bottomNav/profile.svg'} title={"Profile"} />
             </div>
         </Layout>
     )

@@ -3,6 +3,7 @@ import {NewsBanner} from "@/shared/ui/news-banner";
 import {GameArea} from "@/shared/ui/game-area";
 import {BettingSection} from "@/feature/betting-section";
 import {PlayersList} from "@/feature/players-list";
+import {Deposit} from "@/feature/deposit";
 
 export default function Page() {
     return (
@@ -13,6 +14,7 @@ export default function Page() {
             <GameArea/>
             <BettingSection/>
             <PlayersList/>
+            <Deposit/>
         </div>
     )
 }

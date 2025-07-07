@@ -12,16 +12,16 @@ export function Filter() {
             <div className="flex items-center gap-3 px-4 py-2">
                 <FilterBar filterName={'Min price'}/>
 
-                <div className="w-6 h-0.5 bg-[#707579]"></div>
+                <div className="w-3 h-0.5 bg-[#707579]"></div>
 
                 <FilterBar filterName={'Max price'}/>
 
                 <FilterButton>
-                    <Grid2X2 className="w-5 h-5 text-white"/>
+                    <Grid2X2 className="w-6 h-6 text-white"/>
                 </FilterButton>
 
                 <FilterButton>
-                    <FunnelX className="w-5 h-5 text-[#942123]"/>
+                    <FunnelX className="w-6 h-6 text-[#942123]"/>
                 </FilterButton>
 
             </div>

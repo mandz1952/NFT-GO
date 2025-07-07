@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className={'bg-[#150f27] min-h-screen text-white  mx-auto relative'}>
         <Filter/>
-        <NftList/>
+        <NftList isProfile={false} imgNft={'/nft-1.png'}/>
     </div>
   );
 }
