@@ -14,7 +14,6 @@ export default function Page() {
             <GameArea/>
             <BettingSection/>
             <PlayersList/>
-            <Deposit/>
         </div>
     )
 }

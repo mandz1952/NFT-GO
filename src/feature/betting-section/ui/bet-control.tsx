@@ -53,9 +53,6 @@ export function BetControl ({presetAmounts, adjustBet, betAmount1, setBetAmount1
                     ))}
 
                 </div>
-
-
-
             </div>
             <div className={'w-[100%] py-2 px-1'}>
                 <Button
