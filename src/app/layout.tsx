@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#150f27]`}
       >
         <Header/>
-        <div className={'bg-[#150f27] min-h-screen text-white px-4 mx-auto relative'}>
+        <div className={'bg-[#150f27] min-h-screen text-white px-1 mx-auto relative'}>
           {children}
         </div>
         <BottomNav/>

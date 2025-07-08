@@ -1,6 +1,7 @@
 "use client"
 
 import {Button} from "@/shared/ui/button";
+import {Input} from "@/shared/ui/input";
 import {Minus, Plus} from "lucide-react";
 import {useState} from "react";
 import {Deposit} from "@/feature/deposit";
@@ -24,7 +25,7 @@ export function BetControl ({presetAmounts, adjustBet, betAmount1, setBetAmount1
                             <Minus className="bg-[#241E44] w-4 h-4"/>
                         </div>
                     </Button>
-                    <span className="text-white font-bold text-xl min-w-[40px] text-center">{betAmount1}</span>
+                    <Input value={betAmount1} onChange={event => setBetAmount1(Number(event.target.value))} className="border-none text-white font-bold text-xl min-w-[40px] text-center"/>
                     <Button
                         size="sm"
                         variant="ghost"
