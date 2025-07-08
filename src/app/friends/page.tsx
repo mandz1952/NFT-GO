@@ -35,12 +35,12 @@ export default function Page() {
             </div>
 
             <FriendsList/>
-            <div className={"flex mb-30"}>
-                <Button className="px-[80px] bg-gradient-to-r from-[#6100FF] to-[#B384FF] hover:bg-[#533189] text-white rounded-[12px] py-2 h-[45px] text-lg font-semibold mb-4">
+            <div className={"flex mb-30 justify-between"}>
+                <Button className="w-[85%] bg-gradient-to-r from-[#6100FF] to-[#B384FF] hover:bg-[#533189] text-white rounded-[12px] py-2 h-[45px] text-lg font-semibold mb-4">
                     Пригласить друга
                 </Button>
 
-                <div className="flex justify-end w-[30%]">
+                <div className="flex justify-end">
                     <Button className="bg-gradient-to-r from-[#6100FF] to-[#B384FF] hover:bg-[#533189] text-white rounded-[12px] p-4 w-[45px] h-[45px]">
                         <SquaresUnite className="w-12 h-12" />
                     </Button>
