@@ -9,7 +9,6 @@ export function FilterBar({filterName, min, defaultValue, max, type, onValueChan
     const initialValue = defaultValue !== undefined ? defaultValue : type === "min" ? min : max;
     const [value, setValue] = useState<number | string>(initialValue);
 
-    // Обновляем значение, если min/max изменились
     useEffect(() => {
         let newValue = Number(value);
         if (isNaN(newValue)) {
@@ -41,25 +40,6 @@ export function FilterBar({filterName, min, defaultValue, max, type, onValueChan
 
         setValue(newValue);
         if (onValueChange && typeof newValue === "number") {
-            onValueChange(newValue);
-        }
-    };
-
-    const handleBlur = () => {
-        // При потере фокуса устанавливаем значение в зависимости от типа
-        let newValue: number;
-        if (value === "" || isNaN(Number(value))) {
-            newValue = type === "min" ? min : max;
-        } else {
-            newValue = Number(value);
-            if (newValue < min) {
-                newValue = min;
-            } else if (newValue > max) {
-                newValue = max;
-            }
-        }
-        setValue(newValue);
-        if (onValueChange) {
             onValueChange(newValue);
         }
     };
