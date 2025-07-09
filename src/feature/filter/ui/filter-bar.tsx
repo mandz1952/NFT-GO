@@ -54,7 +54,7 @@ export function FilterBar({min, max, type, onValueChange}: {min: number, max: nu
         <div className="flex-1">
             <div className="bg-[#231c46] rounded-lg pr-2 py-1.5 flex items-center">
                 <Input
-                    type="text"
+                    type="number"
                     className="text-[#707579] border-none text-sm text-left [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                     min={min}
                     max={max}

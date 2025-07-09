@@ -25,7 +25,7 @@ export function BetControl ({presetAmounts, adjustBet, betAmount1, setBetAmount1
                             <Minus className="bg-[#241E44] w-4 h-4"/>
                         </div>
                     </Button>
-                    <Input value={betAmount1} onChange={event => setBetAmount1(Number(event.target.value))} className="border-none text-white font-bold text-xl min-w-[40px] text-center"/>
+                    <Input type={'number'} value={betAmount1} onChange={event => setBetAmount1(Number(event.target.value))} className="border-none text-white font-bold text-xl min-w-[40px] text-center [appearance:textfield]"/>
                     <Button
                         size="sm"
                         variant="ghost"
