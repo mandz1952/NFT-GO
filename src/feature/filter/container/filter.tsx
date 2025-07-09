@@ -6,7 +6,7 @@ import {FilterButton} from "@/feature/filter/ui/filter-button";
 export function Filter() {
     return (
         <>
-            <div className="px-4 py-4">
+            <div className="px-4">
                 <SearchBar/>
             </div>
             <div className="flex items-center gap-3 px-4 py-1">
