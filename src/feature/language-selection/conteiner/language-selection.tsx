@@ -10,8 +10,8 @@ export function LanguageSelection() {
     const [selectedLanguage, setSelectedLanguage] = useState("russian")
 
     return (
-        <Card className="bg-[#231C46] p-4 mb-6 border-none">
-            <h3 className="text-white font-medium mb-4">Выбрать язык</h3>
+        <Card className="bg-[#231C46] p-4 flex gap-3 mb-6 border-none">
+            <h3 className="text-[#CECECE] text-sm">Выбрать язык</h3>
             <div className="flex gap-3 bg-[#262352]">
                 <Button
                     onClick={() => setSelectedLanguage("russian")}

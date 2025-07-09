@@ -25,7 +25,7 @@ export default function Page() {
                         </h2>
                     </div>
                     <div className="w-16 h-16 opacity-60">
-                        <Image src={'/friends/nftGoLogo.png'} alt={'nft go logo'} width={91} height={100}/>
+                        <Image src={'/friends/nftGoLogo.png'} alt={'nft go logo'} width={91} height={100} />
                     </div>
                 </div>
             </div>

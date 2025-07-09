@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {Header} from "@/shared/ui/header";
@@ -24,9 +25,41 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const imageUrls: string[] = [
+    '/tonCoin.svg',
+    '/file.svg',
+    '/globe.svg',
+    '/logo.svg',
+    '/next.svg',
+    '/nft-1.png',
+    '/tonCoin.svg',
+    '/tonkeeper.svg',
+    '/vercel.svg',
+    '/window.svg',
+    '/bottomNav/friends.svg',
+    '/bottomNav/market.svg',
+    '/bottomNav/profile.svg',
+    '/bottomNav/rocket.svg',
+    '/bottomNav/top.svg',
+    '/friends/nftGoLogo.png',
+    '/friends/ticket.png',
+    '/profile/lock.svg',
+    '/profile/nft-2.svg',
+    '/profile/nftGoLogo.svg',
+    '/rocket/deposit-2.svg',
+    '/rocket/rocket.png',
+    '/rocket/wifi.png'
+  ];
+
   return (
     <html lang="en">
-      <body
+    <head>
+      {imageUrls.map((url, index) => (
+          <link key={index} rel="preload" href={url} as="image" />
+      ))}
+    </head>
+    <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#150f27]`}
       >
         <Header/>
