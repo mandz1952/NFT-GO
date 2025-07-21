@@ -3,6 +3,7 @@ import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 import {Header} from "@/shared/ui/header";
 import {BottomNav} from "@/feature/bottom-nav";
+import ParamsRoute from "@/shared/lib/ParamsRoute";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -66,6 +67,7 @@ export default function RootLayout({
         <div className={'bg-[#150f27] min-h-screen text-white px-[15px] mx-auto relative'}>
             {children}
         </div>
+        <ParamsRoute />
         <BottomNav/>
         </body>
         </html>

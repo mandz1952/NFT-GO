@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const Menu = {
     MARKET: '',
@@ -13,34 +13,58 @@ const Menu = {
 
 export default function ParamsRoute() {
     const router = useRouter();
-    const searchParams = useSearchParams();
-    const startParams = searchParams.get('startapp');
 
     useEffect(() => {
-        console.log(startParams)
+        // Проверка Telegram Web App и извлечение start_param
+        let startParams: string | null = null;
+
+        if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
+            console.log('Telegram WebApp:', window.Telegram.WebApp.initDataUnsafe);
+            startParams = window.Telegram.WebApp.initDataUnsafe.start_param || null;
+            window.Telegram.WebApp.ready(); // Сообщаем Telegram, что приложение готово
+        }
+
+        // Резервный вариант: извлечение startapp из URL
+        if (!startParams) {
+            const params = new URLSearchParams(window.location.search);
+            startParams = params.get('startapp');
+            console.log('URL searchParams:', Object.fromEntries(params));
+        }
+
+        console.log('ParamsRoute: startapp=', startParams);
+
         if (startParams) {
-            switch (startParams) {
+            const param = startParams.toLowerCase();
+            switch (param) {
                 case Menu.MARKET:
+                    console.log('Redirecting to /');
                     router.replace('/', { scroll: false });
                     break;
                 case Menu.TOP:
-                    router.replace(`/${Menu.TOP}`, { scroll: false });
+                    console.log('Redirecting to /top');
+                    router.replace('/top', { scroll: false });
                     break;
                 case Menu.ROCKET:
-                    router.replace(`/${Menu.ROCKET}`, { scroll: false });
+                    console.log('Redirecting to /rocket');
+                    router.replace('/rocket', { scroll: false });
                     break;
                 case Menu.FRIENDS:
-                    router.replace(`/${Menu.FRIENDS}`, { scroll: false });
+                    console.log('Redirecting to /friends');
+                    router.replace('/friends', { scroll: false });
                     break;
                 case Menu.PROFILE:
-                    router.replace(`/${Menu.PROFILE}`, { scroll: false });
+                    console.log('Redirecting to /profile');
+                    router.replace('/profile', { scroll: false });
                     break;
                 default:
-                    router.replace('/', { scroll: false }); // Страница по умолчанию
+                    console.log('Redirecting to default /');
+                    router.replace('/', { scroll: false });
                     break;
             }
+        } else {
+            console.log('No startapp parameter, staying on current page');
         }
-    }, [startParams, router]);
+    }, [router]);
 
-    return <>{startParams}</>; // Компонент ничего не рендерит
+    return null; // Компонент ничего не рендерит
 }
