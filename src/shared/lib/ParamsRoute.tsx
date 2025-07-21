@@ -34,7 +34,6 @@ export default function ParamsRoute() {
         console.log('ParamsRoute: startapp=', startParams);
 
         if (startParams) {
-            const param = startParams.toLowerCase();
             switch (startParams) {
                 case Menu.MARKET:
                     console.log('Redirecting to /');
