@@ -17,6 +17,7 @@ export default function ParamsRoute() {
     const startParams = searchParams.get('startapp');
 
     useEffect(() => {
+        console.log(startParams)
         if (startParams) {
             switch (startParams) {
                 case Menu.MARKET:
@@ -41,5 +42,5 @@ export default function ParamsRoute() {
         }
     }, [startParams, router]);
 
-    return null; // Компонент ничего не рендерит
+    return <>{startParams}</>; // Компонент ничего не рендерит
 }
