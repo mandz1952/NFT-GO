@@ -24,15 +24,6 @@ export default function ParamsRoute() {
             window.Telegram.WebApp.ready(); // Сообщаем Telegram, что приложение готово
         }
 
-        // Резервный вариант: извлечение startapp из URL
-        if (!startParams && typeof window !== 'undefined') {
-            const params = new URLSearchParams(window.location.search);
-            startParams = params.get('startapp');
-            console.log('URL searchParams:', Object.fromEntries(params));
-        }
-
-        console.log('ParamsRoute: startapp=', startParams);
-
         if (startParams) {
             switch (startParams) {
                 case Menu.MARKET:
