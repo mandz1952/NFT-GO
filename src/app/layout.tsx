@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
-// import {Header} from "@/shared/ui/header";
+import {Header} from "@/shared/ui/header";
 import {BottomNav} from "@/feature/bottom-nav";
 import ParamsRoute from "@/shared/lib/ParamsRoute";
 import {Suspense} from "react";
@@ -65,10 +65,7 @@ export default function RootLayout({
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#150f27]`}
         >
-        {/*<Header/>*/}
-        <Suspense fallback={null}>
-            <ParamsRoute />
-        </Suspense>
+        <Header/>
         <div className={'bg-[#150f27] min-h-screen text-white px-[15px] mx-auto relative'}>
             {children}
         </div>
