@@ -60,7 +60,6 @@ export default function RootLayout({
             {imageUrls.map((url, index) => (
                 <link key={index} rel="preload" href={url} as="image"/>
             ))}
-            <title>NFT GO</title>
         </head>
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#150f27]`}

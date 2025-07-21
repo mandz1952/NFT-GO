@@ -1,11 +1,10 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export default function ParamsRoute() {
     const router = useRouter();
-    const searchParams = useSearchParams();
 
     useEffect(() => {
         let startParam: string | null = null;
@@ -19,11 +18,6 @@ export default function ParamsRoute() {
             window.Telegram.WebApp.ready(); // Сообщаем Telegram, что приложение готово
         }
 
-        // Если параметр не найден в Telegram, ищем в URL
-        if (!startParam) {
-            startParam = searchParams.get('startapp');
-        }
-
         if (startParam !== null) {
             const path = startParam.startsWith('/') ? startParam : `/${startParam}`;
             console.log(`Redirecting to ${path}`);
@@ -31,7 +25,7 @@ export default function ParamsRoute() {
         } else {
             console.log('No startapp parameter, staying on current page');
         }
-    }, [router, searchParams]);
+    }, [router]);
 
     return null; // Компонент ничего не рендерит
 }
