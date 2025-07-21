@@ -65,7 +65,7 @@ export default function RootLayout({
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#150f27]`}
         >
-        <Header/>
+        {/*<Header/>*/}
         <Suspense fallback={null}>
             <ParamsRoute />
         </Suspense>
