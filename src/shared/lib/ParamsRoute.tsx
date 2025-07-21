@@ -15,8 +15,6 @@ export default function ParamsRoute() {
     const router = useRouter();
 
     useEffect(() => {
-        // Проверка Telegram Web App и извлечение start_param
-        let startParams: string | null = null;
 
         if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
             const command = window.Telegram.WebApp.initDataUnsafe.start_param
