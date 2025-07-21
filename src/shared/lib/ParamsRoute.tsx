@@ -65,5 +65,5 @@ export default function ParamsRoute() {
         }
     }, [router]);
 
-    return {startParams}; // Компонент ничего не рендерит
+    return <>{startParams}</> // Компонент ничего не рендерит
 }
