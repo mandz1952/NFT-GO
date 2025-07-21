@@ -3,7 +3,6 @@ import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 import {Header} from "@/shared/ui/header";
 import {BottomNav} from "@/feature/bottom-nav";
-import {ParamsRoute} from "@/shared/lib/ParamsRoute";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -25,7 +24,6 @@ export default function RootLayout({
                                    }: Readonly<{
     children: React.ReactNode;
 }>) {
-    ParamsRoute()
 
     const imageUrls: string[] = [
         '/tonCoin.svg',
