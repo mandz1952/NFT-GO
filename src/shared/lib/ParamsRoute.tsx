@@ -20,7 +20,7 @@ export default function ParamsRoute() {
 
 
         // Проверка Telegram Web App
-        if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
+        if (window.Telegram?.WebApp) {
             console.log('Telegram WebApp available:', window.Telegram.WebApp.initDataUnsafe);
             startParams = window.Telegram.WebApp.initDataUnsafe.start_param || null;
             window.Telegram.WebApp.ready();
