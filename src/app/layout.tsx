@@ -4,6 +4,7 @@ import "./globals.css";
 import {Header} from "@/shared/ui/header";
 import {BottomNav} from "@/feature/bottom-nav";
 import ParamsRoute from "@/shared/lib/ParamsRoute";
+import {Suspense} from "react";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -65,7 +66,9 @@ export default function RootLayout({
             className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#150f27]`}
         >
         <Header/>
-        <ParamsRoute />
+        <Suspense fallback={null}>
+            <ParamsRoute />
+        </Suspense>
         <div className={'bg-[#150f27] min-h-screen text-white px-[15px] mx-auto relative'}>
             {children}
         </div>
