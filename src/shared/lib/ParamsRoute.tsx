@@ -35,7 +35,7 @@ export default function ParamsRoute() {
 
         if (startParams) {
             const param = startParams.toLowerCase();
-            switch (param) {
+            switch (startParams) {
                 case Menu.MARKET:
                     console.log('Redirecting to /');
                     router.replace('/', { scroll: false });
