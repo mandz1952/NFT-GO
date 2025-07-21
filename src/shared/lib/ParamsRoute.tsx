@@ -20,22 +20,22 @@ export default function ParamsRoute() {
         if (startParams) {
             switch (startParams) {
                 case Menu.MARKET:
-                    router.replace('/'); // Пустая строка преобразуется в главную страницу
+                    router.replace('/', { scroll: false });
                     break;
                 case Menu.TOP:
-                    router.replace(`/${Menu.TOP}`);
+                    router.replace(`/${Menu.TOP}`, { scroll: false });
                     break;
                 case Menu.ROCKET:
-                    router.replace(`/${Menu.ROCKET}`);
+                    router.replace(`/${Menu.ROCKET}`, { scroll: false });
                     break;
                 case Menu.FRIENDS:
-                    router.replace(`/${Menu.FRIENDS}`);
+                    router.replace(`/${Menu.FRIENDS}`, { scroll: false });
                     break;
                 case Menu.PROFILE:
-                    router.replace(`/${Menu.PROFILE}`);
+                    router.replace(`/${Menu.PROFILE}`, { scroll: false });
                     break;
                 default:
-                    router.replace('/'); // Страница по умолчанию
+                    router.replace('/', { scroll: false }); // Страница по умолчанию
                     break;
             }
         }
