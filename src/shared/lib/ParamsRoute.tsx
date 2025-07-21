@@ -74,6 +74,6 @@ export default function ParamsRoute() {
     }, [router]);
 
     return (
-        <div>{startParams == null ? <div>False</div> : startParams}</div>
+        <div>{startParams == null ? window.Telegram.WebApp.initDataUnsafe.start_param : startParams}</div>
     ); // Компонент ничего не рендерит
 }
