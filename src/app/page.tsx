@@ -1,3 +1,4 @@
+'use client'
 import {Filter} from "@/feature/filter";
 import {NftList} from "@/feature/grid";
 import {ParamsRoute} from "@/shared/lib/ParamsRoute";
