@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const Menu = {
@@ -13,13 +13,15 @@ const Menu = {
 
 export default function ParamsRoute() {
     const router = useRouter();
-    let startParams: string | null = null;
+    const [rendered, setRendered] = useState(false);
+
     useEffect(() => {
+        setRendered(true); // Mark that useEffect has run
         // This code runs only on the client, after the component has mounted.
         // This gives the Telegram Web App script time to load.
         console.log('ParamsRoute: useEffect started');
 
-        startParams = 'True'
+        let startParams: string | null = null;
 
         // Check for Telegram Web App
         if (typeof window !== 'undefined' && window.Telegram && window.Telegram.WebApp) {
@@ -77,5 +79,9 @@ export default function ParamsRoute() {
         }
     }, [router]); // The effect depends on the router
 
-    return <>{startParams == null ? <div>False</div> : startParams}</>; // This component does not render any UI
+    return (
+        <div style={{ position: 'fixed', top: 0, left: 0, padding: '10px', background: rendered ? 'green' : 'red', color: 'white', zIndex: 9999 }}>
+            ParamsRoute: {rendered ? 'useEffect RUN' : 'useEffect NOT RUN'}
+        </div>
+    );
 }
