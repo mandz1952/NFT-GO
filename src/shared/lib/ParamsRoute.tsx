@@ -22,8 +22,9 @@ export default function ParamsRoute() {
         // Проверка Telegram Web App
         if (window.Telegram?.WebApp) {
             console.log('Telegram WebApp available:', window.Telegram.WebApp.initDataUnsafe);
-            startParams = window.Telegram.WebApp.initDataUnsafe.start_param || null;
+            // startParams = window.Telegram.WebApp.initDataUnsafe.start_param || null;
             window.Telegram.WebApp.ready();
+            startParams = "Not if"
             console.log('Telegram start_param:', startParams);
         } else {
             console.log('Telegram WebApp not available');
@@ -74,6 +75,6 @@ export default function ParamsRoute() {
     }, [router]);
 
     return (
-        <div>{window.Telegram?.WebApp ? window.Telegram.WebApp.initDataUnsafe.start_param : <div>F</div>}</div>
+        <div>{startParams == null ? <div>False</div> : startParams}</div>
     ); // Компонент ничего не рендерит
 }
