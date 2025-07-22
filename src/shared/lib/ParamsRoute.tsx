@@ -15,7 +15,7 @@ export default function ParamsRoute() {
     const router = useRouter();
     let startParams: string | null = 'da';
     (()=> {
-        startParams = 'yes'
+        // startParams = 'yes'
 
         // Проверка Telegram Web App
         if (typeof window !== 'undefined' && window.Telegram) {
