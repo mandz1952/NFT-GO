@@ -17,7 +17,7 @@ export default function ParamsRoute() {
     useEffect(() => {
         console.log('ParamsRoute: useEffect started');
 
-
+        startParams = 'yes'
 
         // Проверка Telegram Web App
         if (typeof window !== 'undefined' && window.Telegram) {
