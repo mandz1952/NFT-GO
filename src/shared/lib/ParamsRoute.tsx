@@ -13,7 +13,7 @@ const Menu = {
 
 export default function ParamsRoute() {
     const router = useRouter();
-    let startParams: string | null = 'da';
+    let startParams: string | null;
     useEffect(() => {
         console.log('ParamsRoute: useEffect started');
 
