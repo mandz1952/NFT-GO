@@ -87,9 +87,5 @@ export default function ParamsRoute() {
         };
     }, [handleTelegramReady]);
 
-    return (
-        <div style={{ position: 'fixed', top: 0, left: 0, padding: '10px', background: tgReady ? 'green' : 'blue', color: 'white', zIndex: 9999 }}>
-            ParamsRoute: {tgReady ? 'Telegram Ready' : 'Waiting for Telegram'}
-        </div>
-    );
+    return null
 }
