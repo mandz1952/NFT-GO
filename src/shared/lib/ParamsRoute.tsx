@@ -72,7 +72,7 @@ export default function ParamsRoute() {
         } else {
             console.log('No startapp parameter, staying on current page');
         }
-    }, [router]);
+    }, []);
 
     return (
         <div>{startParams == null ? <div>False</div> : startParams}</div>
