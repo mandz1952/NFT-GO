@@ -2,7 +2,7 @@
 import {Filter} from "@/feature/filter";
 import {NftList} from "@/feature/grid";
 import ParamsRoute from "@/shared/lib/ParamsRoute";
-import {Suspense} from "react";
+// import {Suspense} from "react";
 
 export default function Home() {
     return (
