@@ -22,6 +22,7 @@ export default function ParamsRoute() {
             // console.log('Telegram WebApp available:', window.Telegram.WebApp.initDataUnsafe);
             // startParams = window.Telegram.WebApp.initDataUnsafe.start_param || null;
             // window.Telegram.WebApp.ready();
+            console.log(window.Telegram)
             startParams = "Not if"
             console.log('Telegram start_param:', startParams);
         } else {
@@ -63,8 +64,6 @@ export default function ParamsRoute() {
                     router.push('/profile', { scroll: false });
                     break;
                 default:
-                    console.log('Redirecting to default /');
-                    router.push('/', { scroll: false });
                     break;
             }
         } else {
