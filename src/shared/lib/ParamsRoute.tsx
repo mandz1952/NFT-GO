@@ -18,7 +18,7 @@ export default function ParamsRoute() {
         // startParams = 'yes'
 
         // Проверка Telegram Web App
-        if (window.Telegram) {
+        if (typeof window !== 'undefined' && window.Telegram) {
             console.log('Telegram WebApp available:', window.Telegram.WebApp.initDataUnsafe);
             // startParams = window.Telegram.WebApp.initDataUnsafe.start_param || null;
             // window.Telegram.WebApp.ready();
@@ -29,12 +29,12 @@ export default function ParamsRoute() {
         }
 
         // Резервный вариант: извлечение startapp из URL
-        if (!startParams && typeof window !== 'undefined') {
-            const params = new URLSearchParams(window.location.search);
-            startParams = params.get('startapp');
-            console.log('URL searchParams:', Object.fromEntries(params));
-            console.log('URL startapp:', startParams);
-        }
+        // if (!startParams && typeof window !== 'undefined') {
+        //     const params = new URLSearchParams(window.location.search);
+        //     startParams = params.get('startapp');
+        //     console.log('URL searchParams:', Object.fromEntries(params));
+        //     console.log('URL startapp:', startParams);
+        // }
 
         console.log('Final startParams:', startParams);
 
