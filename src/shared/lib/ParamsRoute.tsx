@@ -13,11 +13,11 @@ const Menu = {
 
 export default function ParamsRoute() {
     const router = useRouter();
-    let startParams: string | null = null;
+    let startParams: string | null = 'da';
     useEffect(() => {
         console.log('ParamsRoute: useEffect started');
 
-        startParams = 'yes'
+        // startParams = 'yes'
 
         // Проверка Telegram Web App
         if (typeof window !== 'undefined' && window.Telegram) {
