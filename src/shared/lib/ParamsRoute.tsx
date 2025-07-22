@@ -16,7 +16,7 @@ export default function ParamsRoute() {
     const [rendered, setRendered] = useState(false);
 
     useEffect(() => {
-        setRendered(true); // Mark that useEffect has run
+         // Mark that useEffect has run
         // This code runs only on the client, after the component has mounted.
         // This gives the Telegram Web App script time to load.
         console.log('ParamsRoute: useEffect started');
@@ -25,6 +25,7 @@ export default function ParamsRoute() {
 
         // Check for Telegram Web App
         if (typeof window !== 'undefined' && window.Telegram && window.Telegram.WebApp) {
+            setRendered(true);
             console.log('Telegram WebApp available:', window.Telegram.WebApp.initDataUnsafe);
             // Notify Telegram that the app is ready
             window.Telegram.WebApp.ready();
