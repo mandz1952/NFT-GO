@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
 const Menu = {
@@ -13,40 +13,32 @@ const Menu = {
 
 export default function ParamsRoute() {
     const router = useRouter();
-    const [rendered, setRendered] = useState(false);
+    const [tgReady, setTgReady] = useState(false);
 
-    useEffect(() => {
-         // Mark that useEffect has run
-        // This code runs only on the client, after the component has mounted.
-        // This gives the Telegram Web App script time to load.
-        console.log('ParamsRoute: useEffect started');
+    const handleTelegramReady = useCallback(() => {
+        console.log('Telegram WebApp is ready or was already ready.');
+        setTgReady(true);
 
         let startParams: string | null = null;
 
-        // Check for Telegram Web App
-        if (typeof window !== 'undefined' && window.Telegram && window.Telegram.WebApp) {
-            setRendered(true);
+        if (window.Telegram && window.Telegram.WebApp) {
             console.log('Telegram WebApp available:', window.Telegram.WebApp.initDataUnsafe);
-            // Notify Telegram that the app is ready
             window.Telegram.WebApp.ready();
-            // Get start parameter from Telegram
             startParams = window.Telegram.WebApp.initDataUnsafe.start_param || null;
             console.log('Telegram start_param:', startParams);
         } else {
-            console.log('Telegram WebApp not available');
+            console.log('Telegram WebApp not available even after ready event.');
         }
 
-        // Fallback: extract 'startapp' from the URL
-        if (!startParams && typeof window !== 'undefined') {
+        if (startParams === null && typeof window !== 'undefined') {
             const params = new URLSearchParams(window.location.search);
             startParams = params.get('startapp');
-            console.log('URL searchParams:', Object.fromEntries(params));
-            console.log('URL startapp:', startParams);
+            console.log('URL fallback startapp:', startParams);
         }
 
         console.log('Final startParams:', startParams);
 
-        if (startParams) {
+        if (startParams !== null) {
             const param = startParams.toLowerCase();
             console.log('Processing param:', param);
             switch (param) {
@@ -71,18 +63,33 @@ export default function ParamsRoute() {
                     router.push('/profile', { scroll: false });
                     break;
                 default:
-                    // It's good practice to have a default case
                     console.log(`Unknown start_param '${param}', staying on current page.`);
                     break;
             }
         } else {
             console.log('No startapp parameter, staying on current page');
         }
-    }, [router]); // The effect depends on the router
+    }, [router]);
+
+    useEffect(() => {
+        // Check if the script is already loaded
+        if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData) {
+            handleTelegramReady();
+            return;
+        }
+
+        // If not, wait for the ready event
+        window.addEventListener('telegramWebAppReady', handleTelegramReady);
+
+        // Cleanup the event listener on component unmount
+        return () => {
+            window.removeEventListener('telegramWebAppReady', handleTelegramReady);
+        };
+    }, [handleTelegramReady]);
 
     return (
-        <div style={{ position: 'fixed', top: 0, left: 0, padding: '10px', background: rendered ? 'green' : 'red', color: 'white', zIndex: 9999 }}>
-            ParamsRoute: {rendered ? 'useEffect RUN' : 'useEffect NOT RUN'}
+        <div style={{ position: 'fixed', top: 0, left: 0, padding: '10px', background: tgReady ? 'green' : 'blue', color: 'white', zIndex: 9999 }}>
+            ParamsRoute: {tgReady ? 'Telegram Ready' : 'Waiting for Telegram'}
         </div>
     );
 }
