@@ -13,13 +13,13 @@ const Menu = {
 
 export default function ParamsRoute() {
     const router = useRouter();
-
+    let startParams: string | null = null;
     useEffect(() => {
         // This code runs only on the client, after the component has mounted.
         // This gives the Telegram Web App script time to load.
         console.log('ParamsRoute: useEffect started');
 
-        let startParams: string | null = null;
+        startParams = 'True'
 
         // Check for Telegram Web App
         if (typeof window !== 'undefined' && window.Telegram && window.Telegram.WebApp) {
@@ -77,5 +77,5 @@ export default function ParamsRoute() {
         }
     }, [router]); // The effect depends on the router
 
-    return null; // This component does not render any UI
+    return <>{startParams == null ? <div>False</div> : startParams}</>; // This component does not render any UI
 }
